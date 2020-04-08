@@ -119,15 +119,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   notActiveNumberButtons = () => {
     numberBtn.forEach((key) => {
-      key.style.pointerEvents = 'none'
-      key.style.background = 'grey'
+      key.classList.remove('numberBtn')
+      key.classList.add('numberBtnNotActive')
     })
   }
 
   activeNumberButtons = () => {
     numberBtn.forEach((key) => {
-      key.style.pointerEvents = 'auto'
-      key.style.background = 'white'
+      key.classList.remove('numberBtnNotActive')
+      key.classList.add('numberBtn')
     })
   }
 
