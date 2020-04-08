@@ -48,6 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
           case (buttonNumber == randomNumber):
             aboutRandomNumber.innerHTML = 'Voitit'
                 gameScoreIncrement()
+                notActiveNumberButtons()
                 setTimeout(() => {
                   restartGame()
                 }, 1500)
@@ -62,6 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
         aboutRandomNumber.innerHTML = `Hävisit, numeroni oli: <strong>${randomNumber}</strong>`
         gameScoreDecrement()
         restartGame()
+        notActiveNumberButtons()
       }
     })
   })
@@ -70,6 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
   startGame = () => {
     gameContent.style.display = 'block'
+    activeNumberButtons()
   }
 
 /////////////////////////////PELIN KÄYNNISTYS UUDELLEEN JOS PELI LOPPUU/////////////////////////////////////////////////
@@ -80,6 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const restartBtn = document.querySelector('.restartBtn')
     restartBtn.addEventListener('click', () => {
       if (restartBtn) {
+        activeNumberButtons()
         aboutRandomNumber.innerHTML = ''
         randomNumberText.innerHTML = ''
         restartGameWindow.style.display = 'none'
@@ -113,6 +117,19 @@ document.addEventListener('DOMContentLoaded', () => {
     scoreText.innerHTML = `Voitetut pelisi: ${gameScore}`
   }
 
+  notActiveNumberButtons = () => {
+    numberBtn.forEach((key) => {
+      key.style.pointerEvents = 'none'
+      key.style.background = 'grey'
+    })
+  }
+
+  activeNumberButtons = () => {
+    numberBtn.forEach((key) => {
+      key.style.pointerEvents = 'auto'
+      key.style.background = 'white'
+    })
+  }
 
 
 
