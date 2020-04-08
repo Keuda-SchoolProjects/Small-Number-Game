@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
   let gameScore = ''
   
 
+  /////////////////////////ALOITAME PELI////////////////////////////////////////
+
   buttonStart.addEventListener('click', () => {
     buttonStart.style.background = 'brown'
     startWindow.style.transition = '3s linear'
@@ -22,13 +24,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 2000)
   })
   
+
+  ////////////////////////////1-10 PAINONAPPIA OBJECTISTÄ ESTIMME JOKA NAPPI MIKÄ PAINOTTU//////////////////////////////
   
   numberBtn.forEach((key) => {
     key.addEventListener('click', (event) => {
       let buttonNumber = event.target.textContent
       randomNumberText.innerHTML = `<span>Numerosi on: </span>${buttonNumber}`
 
+/////////////////////////////PELI KESTUVUS 3 KERTA//////////////////////////////////////////////////////////////////
+
       if (gameCounter >= 0) {
+
+///////////////////////////////PELIN LOGIIKA KUN PELISSÄ VALITTU VÄÄRÄ NUMERO TAI SAMAN NUMERO//////////////////////////
 
         switch (buttonNumber == randomNumber) {
           case (buttonNumber < randomNumber):
@@ -47,6 +55,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
         gameCounter--
+
+////////////////////////////////KUN PELI LÄPI JA NUMEROT EI LÖIDETTU////////////////////////////////////////////////////
       
       if (gameCounter == 0 && buttonNumber != randomNumber) {
         aboutRandomNumber.innerHTML = `Hävisit, numeroni oli: <strong>${randomNumber}</strong>`
@@ -56,10 +66,13 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   })
 
+///////////////////////////////PELIN ALOISTUS FUNCTION///////////////////////////////////////////////
   
   startGame = () => {
     gameContent.style.display = 'block'
   }
+
+/////////////////////////////PELIN KÄYNNISTYS UUDELLEEN JOS PELI LOPPUU/////////////////////////////////////////////////
 
   restartGame = () => {
     const restartGameWindow = document.querySelector('.restartGameWindow')
@@ -77,6 +90,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
+////////////////////////PELIN ARVIO JOS VOITETTU, SITTEN +//////////////////////////////////////////////////
+
   gameScoreIncrement = () => {
     gameScore++
     if (gameScore == -1) {
@@ -85,6 +100,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let scoreText = document.querySelector('.scoreText')
     scoreText.innerHTML = `Voitetut pelisi: ${gameScore}`
   }
+
+
+////////////////////////PELIN ARVIO JOS HÄVITTY, SITTEN -//////////////////////////////////////////////////
 
   gameScoreDecrement = () => {
     gameScore--
