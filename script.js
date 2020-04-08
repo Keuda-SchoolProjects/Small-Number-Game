@@ -26,19 +26,19 @@ document.addEventListener('DOMContentLoaded', () => {
   numberBtn.forEach((key) => {
     key.addEventListener('click', (event) => {
       let buttonNumber = event.target.textContent
-      randomNumberText.innerHTML = `<span>Your number is: </span>${buttonNumber}`
+      randomNumberText.innerHTML = `<span>Numerosi on: </span>${buttonNumber}`
 
       if (gameCounter >= 0) {
 
         switch (buttonNumber == randomNumber) {
           case (buttonNumber < randomNumber):
-            aboutRandomNumber.innerHTML = 'My number is less'
+            aboutRandomNumber.innerHTML = 'Numeroni on pienempi'
             break
           case (buttonNumber > randomNumber):
-            aboutRandomNumber.innerHTML = 'My number is more'
+            aboutRandomNumber.innerHTML = 'Numeroni on suurempi'
             break
           case (buttonNumber == randomNumber):
-            aboutRandomNumber.innerHTML = 'You Win'
+            aboutRandomNumber.innerHTML = 'Voitit'
                 gameScoreIncrement()
                 setTimeout(() => {
                   restartGame()
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
         gameCounter--
       
       if (gameCounter == 0 && buttonNumber != randomNumber) {
-        aboutRandomNumber.innerHTML = `You Lose, my number is: <strong>${randomNumber}</strong>`
+        aboutRandomNumber.innerHTML = `Hävisit, numeroni oli: <strong>${randomNumber}</strong>`
         gameScoreDecrement()
         restartGame()
       }
@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
       gameScore--
     }
     let scoreText = document.querySelector('.scoreText')
-    scoreText.innerHTML = `Your score is: ${gameScore}`
+    scoreText.innerHTML = `Voitetut pelisi: ${gameScore}`
   }
 
   gameScoreDecrement = () => {
@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
       gameScore++
     }
     let scoreText = document.querySelector('.scoreText')
-    scoreText.innerHTML = `Your score is: ${gameScore}`
+    scoreText.innerHTML = `Voitetut pelisi: ${gameScore}`
   }
 
 

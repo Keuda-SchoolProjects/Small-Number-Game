@@ -1,6 +1,7 @@
 body { 
   background-color: blue;
   font-family: 'Roboto', sans-serif;
+  background-image: url("numerot1.png");
 }
 
 .gameWindow {
