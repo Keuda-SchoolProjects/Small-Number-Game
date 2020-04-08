@@ -162,8 +162,8 @@ document.addEventListener('DOMContentLoaded', () => {
     buttonStart.classList.add('buttonStartAfterClose')
     gameContent.style.display = 'none'
     scoreAfterGame.style.display = 'block'
-    scoreAfterGame.innerHTML = ` Your Win: ${totalScoreWin} <br>
-                               Your Lose: ${totalScoreLose}`
+    scoreAfterGame.innerHTML = ` Voitetut pelit: ${totalScoreWin} <br>
+                               Hävityt pelit: ${totalScoreLose}`
     
   })
 
