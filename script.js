@@ -51,7 +51,8 @@ document.addEventListener('DOMContentLoaded', () => {
             aboutRandomNumber.innerHTML = 'Numeroni on suurempi'
             break
           case (buttonNumber == randomNumber):
-            aboutRandomNumber.innerHTML = 'Voitit'
+            aboutRandomNumber.style.color = 'red'
+            aboutRandomNumber.innerHTML = 'Voitit 🎉'
                 gameScoreIncrement()
                 totalWinScore()
                 notActiveNumberButtons()
@@ -93,6 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
     restartBtn.addEventListener('click', () => {
       if (restartBtn) {
         activeNumberButtons()
+        aboutRandomNumber.style.color = 'black'
         aboutRandomNumber.innerHTML = ''
         randomNumberText.innerHTML = ''
         restartGameWindow.style.display = 'none'
