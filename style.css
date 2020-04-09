@@ -1,14 +1,22 @@
-body { 
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background-color: blue;
   font-family: 'Roboto', sans-serif;
   background-image: url("numerot1.png");
 }
 
+main {
+  height: calc(100vh - 82px);
+}
+
 .gameWindow {
+  margin-top: 25%;
   width: 650px;
   height: 400px;
   background-color: lightseagreen;
-  margin: 10% auto;
   border-radius: 7px;
   border: 2px solid black;
   position: relative;
@@ -166,4 +174,18 @@ body {
 .scoreAfterGame {
   margin-top: 50px;
   text-align: center;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  width: 100%;
+  background-color: lightseagreen;
+  border-top: 2px solid black;
+}
+
+.footerText {
+  font-size: 20px;
 }
