@@ -80,6 +80,13 @@ document.addEventListener('DOMContentLoaded', () => {
       
       if (gameCounter == 0 && buttonNumber != randomNumber) {
         aboutRandomNumber.innerHTML = `Hävisit, numeroni oli: <strong>${randomNumber}</strong>`
+        const a = Array.from(numberBtn.keys())
+        a.findIndex(elem => {
+          if (elem === randomNumber) {
+            console.log(numberBtn[elem - 1]);
+            numberBtn[elem - 1].style.border = '2px solid red'
+          }
+        });
         gameScoreDecrement()
         totalLoseScore()
         setTimeout(() => {
