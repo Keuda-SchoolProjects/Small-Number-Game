@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const scoreAfterGame = document.querySelector('.scoreAfterGame')
   let gameCounter = 3
   let randomNumber = Math.floor(Math.random() * 10) + 1
-  let gameScore = ''
+  let gameScore = 0
   let totalScoreWin = 0
   let totalScoreLose = 0
   
@@ -64,6 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
           case (buttonNumber == randomNumber):
             aboutRandomNumber.style.color = 'red'
             aboutRandomNumber.innerHTML = 'Voitit 🎉'
+            key.style.border = '2px solid red'
                 gameScoreIncrement()
                 totalWinScore()
                 notActiveNumberButtons()
@@ -109,6 +110,9 @@ document.addEventListener('DOMContentLoaded', () => {
         aboutRandomNumber.innerHTML = ''
         randomNumberText.innerHTML = ''
         restartGameWindow.style.display = 'none'
+        numberBtn.forEach(key => {
+          key.style.border = '1px solid grey'
+        })
         gameCounter = 3
         randomNumber = Math.floor(Math.random() * 10) + 1
       }
@@ -175,7 +179,8 @@ document.addEventListener('DOMContentLoaded', () => {
     buttonStart.classList.add('buttonStartAfterClose')
     gameContent.style.display = 'none'
     scoreAfterGame.style.display = 'block'
-    scoreAfterGame.innerHTML = ` Voitetut pelit: ${totalScoreWin} <br>
+    scoreAfterGame.innerHTML = ` Pelatut pelit: ${totalScoreWin + totalScoreLose} <br>
+                                Voitetut pelit: ${totalScoreWin} <br>
                                Hävityt pelit: ${totalScoreLose}`
     
   })
