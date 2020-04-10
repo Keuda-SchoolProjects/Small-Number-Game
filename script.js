@@ -30,9 +30,9 @@ document.addEventListener('DOMContentLoaded', () => {
   })
   
 
-  ////////////////////////////1-10 PAINONAPPIA OBJECTISTÄ ESTIMME JOKA NAPPI MIKÄ PAINOTTU//////////////////////////////
+  ////////////////////////////1-10 PAINONAPPIA OBJECTISTÄ ETSIMME NAPPI MIKÄ PAINOTTU//////////////////////////////
   
-  numberBtn.forEach((key) => {
+  numberBtn.forEach((key, index) => {
     key.addEventListener('click', (event) => {
       let buttonNumber = event.target.textContent
       randomNumberText.innerHTML = `<span>Numerosi on: </span>${buttonNumber}`
@@ -46,9 +46,20 @@ document.addEventListener('DOMContentLoaded', () => {
         switch (buttonNumber == randomNumber) {
           case (buttonNumber < randomNumber):
             aboutRandomNumber.innerHTML = 'Numeroni on pienempi'
+
+            const closeArrBtnsAfter = Array.from(numberBtn).slice(index)
+            closeArrBtnsAfter.forEach(ClosetElems => {
+              ClosetElems.classList.add('numberBtnNotActive')
+            })
+      
             break
           case (buttonNumber > randomNumber):
             aboutRandomNumber.innerHTML = 'Numeroni on suurempi'
+            const closeArrBtnsBefore = Array.from(numberBtn).slice(0, index + 1)
+            closeArrBtnsBefore.forEach(closetElems => {
+              closetElems.classList.add('numberBtnNotActive')
+            })
+            
             break
           case (buttonNumber == randomNumber):
             aboutRandomNumber.style.color = 'red'
