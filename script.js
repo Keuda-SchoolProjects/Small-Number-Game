@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
       randomNumberText.innerHTML = `<span>Numerosi on: </span>${buttonNumber}`
 
 /////////////////////////////PELI KESTUVUS 3 KERTA//////////////////////////////////////////////////////////////////
-
+       
       if (gameCounter >= 0) {
 
 ///////////////////////////////PELIN LOGIIKA KUN PELISSÄ VALITTU VÄÄRÄ NUMERO TAI SAMAN NUMERO//////////////////////////
@@ -83,8 +83,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const a = Array.from(numberBtn.keys())
         a.findIndex(elem => {
           if (elem === randomNumber) {
-            console.log(numberBtn[elem - 1]);
             numberBtn[elem - 1].style.border = '2px solid red'
+          } else if (randomNumber === 10) {
+            numberBtn[9].style.border = '2px solid red'
           }
         });
         gameScoreDecrement()
@@ -191,8 +192,6 @@ document.addEventListener('DOMContentLoaded', () => {
                                Hävityt pelit: ${totalScoreLose}`
     
   })
-
-
 
 
 
